@@ -18,7 +18,7 @@ def get_parameters():
 
     # Traning setting
     parser.add_argument('--n_steps', type=int, default=100000, help='Number of steps to update generator and discriminator')
-    parser.add_argument('--batch_size', type=int, default=64, help='Batch size')
+    parser.add_argument('--batch_size', type=int, default=128, help='Batch size')
     parser.add_argument('--lr', type=float, default=0.001, help='Learning rate')
     parser.add_argument('--beta0', type=float, default=0.9, help='Adam optimizer parameter-1')
     parser.add_argument('--beta1', type=float, default=0.999, help='Adam optimizer parameter-2')

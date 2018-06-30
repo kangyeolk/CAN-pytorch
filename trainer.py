@@ -65,7 +65,6 @@ class Trainer(object):
         start_time = time.time()
 
         for step in range(self.n_steps):
-            print('step:{}'.format(step+1))
             # self.D.train() #
             # self.G.train() #
 
@@ -108,14 +107,14 @@ class Trainer(object):
                 elapsed = time.time() - start_time
                 elapsed = str(datetime.timedelta(seconds=elapsed))
                 print("Elapsed [{}], G_step [{}/{}], D_step[{}/{}], D_loss: {:.4f}, G_loss: {:.4f}".
-                      format(elapsed, step + 1, self.n_steps, (step + 1), self.n_steps,
-                             D_loss.data[0], G_loss.data[0]))
+                       format(elapsed, step + 1, self.n_steps, (step + 1), self.n_steps,
+                       D_loss.data[0], G_loss.data[0]))
 
             # Sample images
             if (step + 1) % self.sample_step == 0:
                 fake_images = self.G(zs)
                 save_image(denorm(fake_images.data),
-                           os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
+                    os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
 
             # Saving model / .pth format(Pytorch own serialization mechanism)
             if (step+1) % model_save_step==0:
